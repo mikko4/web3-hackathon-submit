@@ -57,7 +57,7 @@ const App = () => {
 
   tronWeb.setAddress("TKSzPvJcCNYntfwdaP4YRMWpkU1LuuMt34");
 
-  const contract = tronWeb.contract(abi, "TLBRZ3tfaNoToivySLnBeQyGF1Bbtu31QE");
+  const contract = tronWeb.contract(abi, "TVjhtp6WYY1VdkRNqnhxjV88vL5Zfm7qCN");
 
   const [totalSupply, getTotalSupply] = useState();
   useEffect(() => {
@@ -87,8 +87,6 @@ const App = () => {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
     await sleep(500);
-    console.log(details.address);
-    console.log(amount);
 
     await contract.reward(details.address, amount).send();
   };
