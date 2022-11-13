@@ -57,7 +57,7 @@ const App = () => {
 
   tronWeb.setAddress("TKSzPvJcCNYntfwdaP4YRMWpkU1LuuMt34");
 
-  const contract = tronWeb.contract(abi, "TGNX6SSrByxG4q9AchFuWns8HjMtvWVVHZ");
+  const contract = tronWeb.contract(abi, "TLBRZ3tfaNoToivySLnBeQyGF1Bbtu31QE");
 
   const [totalSupply, getTotalSupply] = useState();
   useEffect(() => {
@@ -72,7 +72,8 @@ const App = () => {
   useEffect(() => {
     const b = async () => {
       try {
-        const supply = await contract.balanceOf(details.address).call();
+        let supply = await contract.balanceOf(details.address).call();
+        console.log(balance + " Address " + details.address);
         getBalance(supply.toString());
       } catch (err) {
         // don't do nothing
