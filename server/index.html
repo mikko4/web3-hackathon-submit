@@ -1,0 +1,35 @@
+<body style="font-size: 200px">
+    ...
+    <script src="https://cdn.jsdelivr.net/npm/tronweb@4.4.0/dist/TronWeb.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const server = "https://api.shasta.trongrid.io";
+            const address = "TPbCp2b2PEwny7GVKBUtTnyhuUbLN4vNp6";
+            const tronWeb = new TronWeb({
+                fullHost: server,
+                solidityNode: server,
+                eventServer: server,
+                privateKey: "",
+            });
+            const abi = [
+                {
+                    inputs: [],
+                    name: "favoriteNumber",
+                    outputs: [
+                        { internalType: "int256", name: "", type: "int256" },
+                    ],
+                    stateMutability: "pure",
+                    type: "function",
+                },
+            ];
+            const contract = tronWeb.contract(abi, address);
+            tronWeb.setAddress(address);
+            contract
+                .favoriteNumber()
+                .call()
+                .then(function (result) {
+                    document.body.innerHTML = result;
+                });
+        });
+    </script>
+</body>
