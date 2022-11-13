@@ -2,6 +2,6 @@
 
 Client folder: Web app front-end, integrated with ECO contract
 
-Server folder: server side web app stuff
+Server folder: some back-end web app stuff
 
-ContractEco folder: Solidity TRC20 smart contract for ECO token
+ContractEco folder: Solidity TRC20 smart contracts for ECO token
